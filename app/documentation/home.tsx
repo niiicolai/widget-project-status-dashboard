@@ -1,6 +1,6 @@
 
 export default function Home() {
-  const dashboardUrl = `http://localhost:5173/widget-project-status-dashboard/#/dashboard/?data_url=http://localhost:5173/widget-project-status-dashboard/projects.json`;
+  const dashboardUrl = `https://niiicolai.github.io/widget-project-status-dashboard/#/dashboard?data_url=https://www.bergandersen.com/widget-project-status-dashboard/projects.json&display_credit=1`;
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white dark:bg-gray-900">
@@ -121,7 +121,7 @@ export default function Home() {
 </iframe>`}
         </pre>
         <p>
-          Add the following to the iframe src attribute to display credit
+          Add/remove the following to/from the iframe src attribute to display/hide credit
           footer:
         </p>
         <pre className="mb-4 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto text-sm">
