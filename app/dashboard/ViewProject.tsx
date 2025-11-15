@@ -10,8 +10,8 @@ export default function ViewProject({
 }) {
   return (
     <div
-      className="p-6 h-64 bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
-      style={{ height: "270px" }}
+      className="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
+      style={{ minHeight: "270px" }}
     >
       <button
         onClick={() => deselectProject()}
@@ -19,7 +19,7 @@ export default function ViewProject({
       >
         Back to all projects
       </button>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-center justify-between">
         <h2 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
           {project.name}
         </h2>
