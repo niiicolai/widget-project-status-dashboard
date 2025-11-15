@@ -1,4 +1,7 @@
 # widget-project-status-dashboard
+A client-side widget that renders a static project status view at the time of page load using data fetched from a specified JSON URL.
+
+![example image](/example/example.png)
 
 ## Development
 
