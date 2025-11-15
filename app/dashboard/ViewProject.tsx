@@ -19,8 +19,8 @@ export default function ViewProject({
       >
         Back to all projects
       </button>
-      <div className="flex flex-col sm:flex-row items-center justify-between">
-        <h2 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
           {project.name}
         </h2>
 
@@ -42,6 +42,30 @@ export default function ViewProject({
       <p className="text-gray-700 dark:text-gray-300 mb-4">
         {project.description}
       </p>
+
+      <div className="flex items-center gap-3">
+        {project.website && (
+        <a
+          href={project.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+          >
+            Website
+        </a>
+        )}
+
+        {project.github && (
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+          >
+            GitHub
+        </a>
+        )}
+      </div>
     </div>
   );
 }

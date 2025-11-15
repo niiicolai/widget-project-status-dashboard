@@ -11,5 +11,5 @@ const fallbackBadge = badges.planned;
 export function StatusBadge({ status }: { status: string }) {
   const badge = badges[status] ? badges[status] : fallbackBadge;
 
-  return <span className={`text-white p-0.5 rounded-md text-sm ${badge.classNames}`}>{badge.label}</span>;
+  return <span className={`text-white p-1 rounded-md text-xs ${badge.classNames}`}>{badge.label}</span>;
 }
