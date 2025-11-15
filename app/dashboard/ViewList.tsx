@@ -62,7 +62,7 @@ export default function ViewList({
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Want a project status dashboard on your website?{" "}
             <a
-              href="https://github.com/niiicolai/repository-name"
+              href="https://www.bergandersen.com/widget-project-status-dashboard/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
