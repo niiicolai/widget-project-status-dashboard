@@ -12,7 +12,7 @@ export default function Home() {
       </p>
       <div className="flex gap-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
         <div>Start Date: 15/11/2025</div>
-        <div>Last Update: 15/11/2025</div>
+        <div>Last Update: 18/11/2025</div>
       </div>
 
       <a
