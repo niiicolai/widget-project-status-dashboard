@@ -11,7 +11,7 @@ export default function ViewProject({
   return (
     <div
       className="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
-      style={{ minHeight: "270px" }}
+      style={{ height: "370px" }}
     >
       <button
         onClick={() => deselectProject()}

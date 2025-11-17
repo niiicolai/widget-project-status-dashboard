@@ -1,43 +1,23 @@
-import type { Project } from "../types/project";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useQuery } from '@tanstack/react-query';
 import ViewProject from "./ViewProject";
 import ViewError from "./ViewError";
 import ViewList from "./ViewList";
 import ViewLoader from "./ViewLoader";
 
 export default function Dashboard() {
-  const [projects, setProjects] = useState<Project[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  const [fetchError, setFetchError] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
   const [URLSearchParams] = useSearchParams();
   const dataUrl = URLSearchParams.get("data_url");
   const displayCredit = URLSearchParams.get("display_credit") === "1";
 
-  useEffect(() => {
-    if (!dataUrl) return;
-
-    fetch(dataUrl)
-      .then((response: Response) => {
-        if (!response.ok) {
-          throw new Error(
-            `HTTP error! Status: ${response.status} ${response.statusText || ""}`
-          );
-        }
-
-        return response.json();
-      })
-      .then((data: { projects: Project[] | undefined }) => {
-        setProjects(data.projects ?? [] );
-      })
-      .catch((error) => {
-        setFetchError(`Failed to fetch data: ${error}`);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      })
-  }, [dataUrl]);
+  const { data, isPending, error } = useQuery({
+    queryKey: ['dataSource', dataUrl],
+    queryFn: () => fetch(dataUrl as string).then(r => r.json()),
+  });
+  const projects = data?.projects;
+  const hasProject = (projects && projects.length);
 
   if (!dataUrl) {
     return (
@@ -49,31 +29,21 @@ export default function Dashboard() {
     );
   }
 
-  if (fetchError) {
+  if (error) {
     return (
       <ViewError
         title="Fetch Error"
-        description={fetchError}
+        description={error.message}
         help="Ensure the data_url points to the correct URL."
       />
     );
   }
 
-  if (fetchError) {
-    return (
-      <ViewError
-        title="Fetch Error"
-        description={fetchError}
-        help="Ensure the data_url points to the correct URL."
-      />
-    );
-  }
-
-  if (isLoading) {
+  if (isPending) {
     return <ViewLoader />
   }
 
-  if (projects && !projects.length) {
+  if (!hasProject) {
     return (
       <ViewError
         title="No projects found"
@@ -83,7 +53,7 @@ export default function Dashboard() {
     );
   }
 
-  if (projects?.length && selectedIndex !== -1) {
+  if (hasProject && selectedIndex !== -1) {
     return (
       <ViewProject
         project={projects[selectedIndex]}

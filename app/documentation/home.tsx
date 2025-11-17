@@ -28,7 +28,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
           Demo
         </h2>
-        <iframe src={dashboardUrl} width="100%" height="270px"></iframe>
+        <iframe src={dashboardUrl} width="100%" height="370px"></iframe>
       </section>
 
       <section className="mb-8 p-4 border border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-950 rounded-lg">
@@ -58,7 +58,7 @@ export default function Home() {
         <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto text-sm">
           {`<iframe 
   src="https://niiicolai.github.io/widget-project-status-dashboard/#/dashboard?data_url=YOUR_DATA_URL" 
-  height="270px"
+  height="370px"
   width="600px">
 </iframe>`}
         </pre>
@@ -79,14 +79,16 @@ export default function Home() {
       "status": "done",
       "description": "Your project description here",
       "startDate": "2025-01-15",
-      "github": "https://github.com/user/repo"
+      "github": "https://github.com/user/repo",
+      "website": "https://example.com",
     },
     {
       "name": "Project 2",
-      "status": "in progress",
+      "status": "in_progress",
       "description": "Another project description",
       "startDate": "2025-03-20",
-      "github": "https://github.com/user/repo2"
+      "github": "https://github.com/user/repo2",
+      "website": "https://example.com",
     }
   ]
 }`}
@@ -106,7 +108,7 @@ export default function Home() {
           </li>
           <li>
             <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
-              in progress
+              in_progress
             </code>{" "}
             - Active projects
           </li>
@@ -133,7 +135,7 @@ export default function Home() {
         <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto text-sm mb-4">
           {`<iframe 
   src="https://niiicolai.github.io/widget-project-status-dashboard/#/dashboard?data_url=https://example.com/projects.json" 
-  height="270px"
+  height="370px"
   width="600px">
 </iframe>`}
         </pre>
